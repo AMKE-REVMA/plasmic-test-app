@@ -1,0 +1,30 @@
+name: Sync Plasmic Designs
+
+on:
+  repository_dispatch:
+    types: [plasmic_publish] # This is the specific signal GitHub will listen for
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Plasmic Sync
+        run: npx plasmic sync --projects ${{ secrets.PLASMIC_PROJECT_ID }}:${{ secrets.PLASMIC_PROJECT_TOKEN }} --yes
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto-sync Plasmic changes"
+          branch: main
