@@ -7,6 +7,12 @@ permissions:
   pull-requests: write
 
 jobs:
+  update-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Node.js versions
+        uses: hongaar/update-node-versions@v2.2.0
+
   dependabot:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
