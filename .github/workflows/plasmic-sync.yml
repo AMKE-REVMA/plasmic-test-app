@@ -8,13 +8,19 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write
-      pull-requests: write
-
     steps:
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          # Use the App token so git pushes are authenticated as the App
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -34,9 +40,11 @@ jobs:
         run: npx plasmic sync --projects ${{ secrets.PLASMIC_PROJECT_ID }}:${{ secrets.PLASMIC_PROJECT_TOKEN }} --yes
 
       - name: Create Pull Request
-        id: cpr 
+        id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
+          # Use the App token to authorize PR creation
+          token: ${{ steps.generate-token.outputs.token }}
           commit-message: "Auto-sync Plasmic changes & update dependencies"
           title: "Auto-sync: Plasmic changes"
           body: "Automated sync from Plasmic. Vercel checks will run automatically."
@@ -49,5 +57,6 @@ jobs:
             --squash \
             --auto
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use the App token to authorize the auto-merge command
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
           PULL_REQUEST_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
