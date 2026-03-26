@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Since we use pnpm, npm covers this
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      # NEVER automatically update major versions (e.g., v1.0 to v2.0)
+      # This is the most important safeguard against breaking changes.
+      - update-types: ["version-update:semver-major"]
