@@ -19,3 +19,13 @@
 .root > * {
   grid-column: 4;
 }
+.button {
+  position: absolute;
+  width: var(--plsmc-standard-width);
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  left: -60px;
+  top: 208px;
+  min-width: 0;
+}

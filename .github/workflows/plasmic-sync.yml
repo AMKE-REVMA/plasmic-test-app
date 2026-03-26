@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [plasmic_publish] # This is the specific signal GitHub will listen for
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   sync:
     runs-on: ubuntu-latest

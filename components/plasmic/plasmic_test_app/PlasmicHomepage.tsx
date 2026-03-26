@@ -99,6 +99,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
+  button?: Flex__<"button">;
 };
 
 export interface DefaultHomepageProps {}
@@ -173,20 +174,36 @@ function PlasmicHomepage__RenderFunc(props: {
             styleTokensClassNames,
             sty.root
           )}
-        />
+        >
+          <button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames(
+              projectcss.all,
+              projectcss.button,
+              projectcss.__wab_text,
+              sty.button
+            )}
+            disabled={false}
+          >
+            {"Hello World!\n"}
+          </button>
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  button: "button";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -251,6 +268,7 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
