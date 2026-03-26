@@ -74,6 +74,9 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: FdZflqoTTIDP/
 
 import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: IVizcH8Op4FY/icon
 import ChevronDown2Icon from "./icons/PlasmicIcon__ChevronDown2"; // plasmic-import: fwMqYE6ideSH/icon
+import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: D7kKMFYoBhAv/icon
+import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: eUMCyhA3Sj5-/icon
+import Icon28Icon from "./icons/PlasmicIcon__Icon28"; // plasmic-import: enGNrdZUB2IV/icon
 
 const emptyProxy: any = new Proxy(() => "", {
   get(_, prop) {
@@ -105,7 +108,8 @@ export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   h1?: Flex__<"h1">;
   button?: Flex__<typeof Button>;
-  text?: Flex__<"div">;
+  columns?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultHomepageProps {}
@@ -286,12 +290,10 @@ function PlasmicHomepage__RenderFunc(props: {
                   }
                   label={
                     <div
-                      data-plasmic-name={"text"}
-                      data-plasmic-override={overrides.text}
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text
+                        sty.text___2R30T
                       )}
                     >
                       {"Sign up"}
@@ -307,6 +309,267 @@ function PlasmicHomepage__RenderFunc(props: {
               </div>
             </div>
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox__jqetd)} />
+
+          <div className={classNames(projectcss.all, sty.freeBox__cM8J9)}>
+            <div
+              data-plasmic-name={"columns"}
+              data-plasmic-override={overrides.columns}
+              className={classNames(projectcss.all, sty.columns)}
+            >
+              <div className={classNames(projectcss.all, sty.column__szNV)}>
+                <div className={classNames(projectcss.all, sty.freeBox__rawNl)}>
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img)}
+                    displayHeight={"40px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"none"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"40px"}
+                    src={{
+                      src: "/plasmic/plasmic_test_app/images/image13.svg",
+                      fullWidth: 150,
+                      fullHeight: 150,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ck422)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gs3X
+                      )}
+                    >
+                      {"Connect with us"}
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__yZs4V)}
+                    >
+                      <Icon3Icon
+                        className={classNames(projectcss.all, sty.svg__dremT)}
+                        role={"img"}
+                      />
+
+                      <Icon2Icon
+                        className={classNames(projectcss.all, sty.svg__jOw2T)}
+                        role={"img"}
+                      />
+
+                      <Icon28Icon
+                        className={classNames(projectcss.all, sty.svg__ayvuv)}
+                        role={"img"}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.column__f2H8Y)}>
+                <div className={classNames(projectcss.all, sty.freeBox__lEp1M)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wNf1L
+                    )}
+                  >
+                    {"Product"}
+                  </div>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__xAyXm
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Pricing"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__ttbMk
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Log in"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__tek2Q
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Integrations"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__vMqe2
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Insights"}
+                  </PlasmicLink__>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.column__zYkK)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___44TLs)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__eeDgo
+                    )}
+                  >
+                    {"Support"}
+                  </div>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__mrGyj
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Documentation"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__xeGbw
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"FAQs"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link___1G1PQ
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Status"}
+                  </PlasmicLink__>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.column__uaKso)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___8Rfzi)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wFerD
+                    )}
+                  >
+                    {"Company"}
+                  </div>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__ndGh4
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"About"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__iz7UT
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Contact us"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__qk7VS
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Careers"}
+                  </PlasmicLink__>
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      sty.link__zCpxH
+                    )}
+                    component={Link}
+                    href={"https://www.plasmic.app/"}
+                    legacyBehavior={false}
+                    platform={"nextjs"}
+                  >
+                    {"Media"}
+                  </PlasmicLink__>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -314,10 +577,11 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "button", "text"],
+  root: ["root", "h1", "button", "columns", "img"],
   h1: ["h1"],
-  button: ["button", "text"],
-  text: ["text"]
+  button: ["button"],
+  columns: ["columns", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -326,7 +590,8 @@ type NodeDefaultElementType = {
   root: "div";
   h1: "h1";
   button: typeof Button;
-  text: "div";
+  columns: "div";
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -393,7 +658,8 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
+    columns: makeNodeComponent("columns"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
