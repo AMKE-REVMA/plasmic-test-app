@@ -63,6 +63,7 @@ import {
 
 import { generateDynamicMetadata, PageCtx } from "./PlasmicHomepageServer"; // plasmic-import: FdZflqoTTIDP/rscServer
 
+import Button from "../../Button"; // plasmic-import: MxoZFYieUjYY/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: v5ohcrizy7bpv6djHhyfdg/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: v5ohcrizy7bpv6djHhyfdg/styleTokensProvider
 
@@ -70,6 +71,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: v5ohcrizy7bpv6djHhyfdg/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: FdZflqoTTIDP/css
+
+import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: IVizcH8Op4FY/icon
+import ChevronDown2Icon from "./icons/PlasmicIcon__ChevronDown2"; // plasmic-import: fwMqYE6ideSH/icon
 
 const emptyProxy: any = new Proxy(() => "", {
   get(_, prop) {
@@ -99,7 +103,9 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
-  button?: Flex__<"button">;
+  h1?: Flex__<"h1">;
+  button?: Flex__<typeof Button>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultHomepageProps {}
@@ -175,19 +181,125 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
-          <button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames(
-              projectcss.all,
-              projectcss.button,
-              projectcss.__wab_text,
-              sty.button
-            )}
-            disabled={false}
-          >
-            {"Hello World!\n"}
-          </button>
+          <div className={classNames(projectcss.all, sty.freeBox__jhFxd)}>
+            <div className={classNames(projectcss.all, sty.freeBox__mrGwq)}>
+              <h1
+                data-plasmic-name={"h1"}
+                data-plasmic-override={overrides.h1}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1
+                )}
+              >
+                {"Lorem Ipsum"}
+              </h1>
+              <div className={classNames(projectcss.all, sty.freeBox__vWsEc)}>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__lVfy4
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
+                  platform={"nextjs"}
+                >
+                  {"Services"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__nOAf
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
+                  platform={"nextjs"}
+                >
+                  {"Features"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__hHjX
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
+                  platform={"nextjs"}
+                >
+                  {"Company"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__ivJKt
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
+                  platform={"nextjs"}
+                >
+                  {"Contact"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__puRl5
+                  )}
+                  component={Link}
+                  href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
+                  platform={"nextjs"}
+                >
+                  {"Login"}
+                </PlasmicLink__>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={"black"}
+                  end={
+                    <ChevronDown2Icon
+                      className={classNames(projectcss.all, sty.svg__xb5Ze)}
+                      role={"img"}
+                    />
+                  }
+                  label={
+                    <div
+                      data-plasmic-name={"text"}
+                      data-plasmic-override={overrides.text}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text
+                      )}
+                    >
+                      {"Sign up"}
+                    </div>
+                  }
+                  start={
+                    <CircleIcon
+                      className={classNames(projectcss.all, sty.svg__rqhZm)}
+                      role={"img"}
+                    />
+                  }
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -195,15 +307,19 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button"],
-  button: ["button"]
+  root: ["root", "h1", "button", "text"],
+  h1: ["h1"],
+  button: ["button", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button: "button";
+  h1: "h1";
+  button: typeof Button;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -268,7 +384,9 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
