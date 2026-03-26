@@ -2,32 +2,36 @@ name: Sync Plasmic Designs
 
 on:
   repository_dispatch:
-    types: [plasmic_publish] # This is the specific signal GitHub will listen for
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    types: [plasmic_publish]
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      # NEW: Install pnpm so the runner matches your local environment
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '24'
+          cache: 'pnpm'
 
+      # CHANGED: Use pnpm install instead of npm ci
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Run Plasmic Sync
         run: npx plasmic sync --projects ${{ secrets.PLASMIC_PROJECT_ID }}:${{ secrets.PLASMIC_PROJECT_TOKEN }} --yes
 
       - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-sync Plasmic changes"
+          commit_message: "Auto-sync Plasmic changes & update dependencies"
           branch: main
