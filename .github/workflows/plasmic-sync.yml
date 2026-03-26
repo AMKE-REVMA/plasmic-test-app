@@ -10,12 +10,12 @@ jobs:
     
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # NEW: Install pnpm so the runner matches your local environment
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -27,15 +27,26 @@ jobs:
           node-version: '24'
           cache: 'pnpm'
 
-      # CHANGED: Use pnpm install instead of npm ci
       - name: Install Dependencies
         run: pnpm install
 
       - name: Run Plasmic Sync
         run: npx plasmic sync --projects ${{ secrets.PLASMIC_PROJECT_ID }}:${{ secrets.PLASMIC_PROJECT_TOKEN }} --yes
 
-      - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
         with:
-          commit_message: "Auto-sync Plasmic changes & update dependencies"
-          branch: main
+          commit-message: "Auto-sync Plasmic changes & update dependencies"
+          title: "Auto-sync: Plasmic changes"
+          body: "Automated sync from Plasmic. Vercel checks will run automatically."
+          branch: plasmic-sync-${{ github.run_id }}
+          delete-branch: true
+
+      - name: Enable Auto-merge
+        run: |
+          gh pr merge "${{ env.PULL_REQUEST_NUMBER }}" \
+            --squash \
+            --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
