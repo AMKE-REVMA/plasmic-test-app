@@ -70,6 +70,21 @@
           "id": "fwMqYE6ideSH",
           "name": "ChevronDown2Icon",
           "moduleFilePath": "plasmic/plasmic_test_app/icons/PlasmicIcon__ChevronDown2.tsx"
+        },
+        {
+          "id": "D7kKMFYoBhAv",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/plasmic_test_app/icons/PlasmicIcon__Icon3.tsx"
+        },
+        {
+          "id": "eUMCyhA3Sj5-",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/plasmic_test_app/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "enGNrdZUB2IV",
+          "name": "Icon28Icon",
+          "moduleFilePath": "plasmic/plasmic_test_app/icons/PlasmicIcon__Icon28.tsx"
         }
       ],
       "images": [
