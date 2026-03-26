@@ -34,6 +34,7 @@ jobs:
         run: npx plasmic sync --projects ${{ secrets.PLASMIC_PROJECT_ID }}:${{ secrets.PLASMIC_PROJECT_TOKEN }} --yes
 
       - name: Create Pull Request
+        id: cpr 
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "Auto-sync Plasmic changes & update dependencies"
