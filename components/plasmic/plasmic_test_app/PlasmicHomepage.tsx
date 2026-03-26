@@ -193,7 +193,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   sty.h1
                 )}
               >
-                {"Lorem Ipsum"}
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#FF3838" }}
+                  >
+                    {"Lorem Ipsum"}
+                  </span>
+                </React.Fragment>
               </h1>
               <div className={classNames(projectcss.all, sty.freeBox__vWsEc)}>
                 <PlasmicLink__
