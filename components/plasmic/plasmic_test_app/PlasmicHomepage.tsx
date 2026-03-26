@@ -196,7 +196,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 <React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
-                    style={{ color: "#FF3838" }}
+                    style={{ color: "#C138FF" }}
                   >
                     {"Hello World"}
                   </span>
